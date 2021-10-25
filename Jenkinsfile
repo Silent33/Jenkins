@@ -1,9 +1,19 @@
 pipeline {
-    agent { docker { image 'node:14-alpine' } }
+    agent {
+        docker {
+            image 'node:lts-buster-slim'
+            args '-p 3000:3000'
+        }
+    }
     stages {
-        stage('build') {
+        stage('Install') {
             steps {
-                sh 'npm --version'
+                sh 'yarn install'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'yarn build'
             }
         }
     }
