@@ -8,5 +8,13 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Silent33/Jenkins.git']]])
             }
         }
+        stage('Install and build') {
+            steps {
+                sh 'yarn install'
+            }
+            steps {
+                sh 'yarn build'
+            }
+        }
     }
 }
