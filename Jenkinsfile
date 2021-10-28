@@ -3,9 +3,9 @@ pipeline {
         docker { image 'node:14-alpine' }
     }
     stages {
-        stage('Test') {
+        stage('Checkout and pull') {
             steps {
-                sh 'node --version'
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Silent33/Jenkins.git']]])
             }
         }
     }
