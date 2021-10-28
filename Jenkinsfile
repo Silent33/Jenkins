@@ -10,7 +10,11 @@ pipeline {
         }
         stage('Install and build') {
             steps {
-                sh 'yarn install'
+                sh """
+                yarn install
+                yarn build
+                rm -rf node_modules
+                """
             }
         }
     }
