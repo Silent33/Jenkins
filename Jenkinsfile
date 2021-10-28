@@ -12,9 +12,6 @@ pipeline {
             steps {
                 sh 'yarn install'
             }
-            steps {
-                sh 'yarn build'
-            }
         }
     }
 }
