@@ -20,7 +20,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh """
-                yarn install create-react-app
+                npm install create-react-app
                 create-react-app react-gh-pages
                 yarn deploy
                 """
