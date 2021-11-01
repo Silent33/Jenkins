@@ -17,14 +17,5 @@ pipeline {
                 """
             }
         }
-        stage('Deploy') {
-            steps {
-                sh """
-                npm install create-react-app
-                create-react-app react-gh-pages
-                yarn deploy
-                """
-            }
-        }
     }
 }
