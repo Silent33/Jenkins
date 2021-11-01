@@ -17,5 +17,12 @@ pipeline {
                 """
             }
         }
+        stage('Deploy') {
+            steps {
+                sh """
+                yarn deploy
+                """
+            }
+        }
     }
 }
